@@ -12,6 +12,8 @@ import android.graphics.Paint;
 
 import java.util.List;
 
+import dadm.scaffold.R;
+
 public abstract class Sprite extends GameObject {
 
     protected double positionX;
@@ -28,9 +30,19 @@ public abstract class Sprite extends GameObject {
 
     private final Matrix matrix = new Matrix();
 
-    protected Sprite (GameEngine gameEngine, int drawableRes) {
+    protected Sprite (GameEngine gameEngine, int drawableRes,int color_nave) {//-1 balas y enemigos 0 Nave1 0 nave2
         Resources r = gameEngine.getContext().getResources();
-        Drawable spriteDrawable = r.getDrawable(drawableRes);
+        Drawable spriteDrawable;
+        if(color_nave==0){
+            spriteDrawable = r.getDrawable(R.drawable.ship);}
+        else if(color_nave==1){
+            spriteDrawable = r.getDrawable(R.drawable.bullet);}
+            else{
+            spriteDrawable = r.getDrawable(drawableRes);}
+
+
+
+
 
         this.pixelFactor = gameEngine.pixelFactor;
 

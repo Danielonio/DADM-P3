@@ -17,7 +17,7 @@ public class MegaBullet extends Sprite {
 
     int dir;
     public MegaBullet(GameEngine gameEngine,int dir){
-        super(gameEngine, R.drawable.robot);
+        super(gameEngine, R.drawable.robot,-1);
         this.dir=dir;
         speedFactor = gameEngine.pixelFactor * -300d / 1000d;
     }

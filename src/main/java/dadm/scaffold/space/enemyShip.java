@@ -22,7 +22,7 @@ public class enemyShip extends Sprite {
    int n;
 
     public enemyShip(GameEngine gameEngine){
-        super(gameEngine, R.drawable.robot);
+        super(gameEngine, R.drawable.robot,-1);
         speedFactor = pixelFactor * 100d / 1000000d; // We want to move at 100px per second on a 400px tall screen
         maxX = gameEngine.width - imageWidth;
         maxY = gameEngine.height - imageHeight;

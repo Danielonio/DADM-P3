@@ -42,7 +42,7 @@ public class GameEngine {
         this.height = theGameView.getHeight()
                 - theGameView.getPaddingTop() - theGameView.getPaddingTop();
 
-        this.pixelFactor = this.height / 400d;
+        this.pixelFactor = this.height / 600d;
 
         this.bajas=bajas;
 
@@ -115,7 +115,7 @@ public class GameEngine {
 
     public void onUpdate(long elapsedMillis) {
 
-        bajas.setText("Bajas "+  nBajas+ " Vidas "+ nVidas);
+        bajas.setText("Eliminados: "+  nBajas+ "  |  Vidas "+ nVidas);
 
         int numGameObjects = gameObjects.size();
         for (int i = 0; i < numGameObjects; i++) {

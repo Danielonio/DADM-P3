@@ -23,7 +23,7 @@ public class resultado extends AppCompatActivity {
     SharedPreferences shar;
 
     protected void onCreate(Bundle savedInstanceState) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         shar = getSharedPreferences("ArchivoSP", Context.MODE_PRIVATE);
@@ -32,7 +32,11 @@ public class resultado extends AppCompatActivity {
         int puntos = bundle.getInt("puntos");
         int vidas = bundle.getInt("vidas");
         sec = (TextView)findViewById(R.id.t);
-        sec.setText("Vidas restantes" + vidas);
+        if(vidas<=0)
+        {
+            sec.setText("No has superado el nivel");
+        }else
+        sec.setText("¡NIVEL SUPERADO!  Vidas restantes" + vidas);
         puntuacion= (TextView)findViewById(R.id.pp);
         puntuacion.setText("Enemigos eliminados: "+String.valueOf(puntos));
         s = findViewById(R.id.sj);
@@ -44,11 +48,8 @@ public class resultado extends AppCompatActivity {
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-          /*      SharedPreferences.Editor editor = shar.edit();
-                editor.putString("Nombre", "anonimo");
-                editor.commit();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();*/
+               finish();
+                System.exit(0);
             }
 
 

@@ -17,6 +17,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginRight="1dp"
         android:text="@string/start" />
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="240dp"
+            android:text="Rojo" />
+
+        <RadioButton
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:text="Azul" />
+    </RadioGroup>
 
 </FrameLayout>

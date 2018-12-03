@@ -23,9 +23,9 @@ public class ScaffoldActivity extends AppCompatActivity {
         }
     }
 
-    public void startGame() {
+    public void startGame(int color_nave) {
         // Navigate the the game fragment, which makes the start automatically
-        navigateToFragment( new GameFragment());
+        navigateToFragment( GameFragment.newInstance( color_nave));
     }
 
     private void navigateToFragment(BaseFragment dst) {

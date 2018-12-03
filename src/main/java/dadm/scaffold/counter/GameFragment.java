@@ -29,16 +29,30 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     Handler handler = new Handler();
     int delay = 2000; //milliseconds
 
-
+    private int ship;
     TextView bajas;
 
     public GameFragment() {
     }
+    public static GameFragment newInstance(int a) {
+        Bundle bundle = new Bundle();
 
+       bundle.putInt("ship", a);
+
+        GameFragment fragment = new GameFragment();
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+    void readBundle(Bundle b)
+    {
+        ship =b.getInt("ship");
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game, container, false);
+        readBundle(getArguments());
         return rootView;
     }
 
@@ -58,7 +72,10 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
                 GameView gameView = (GameView) getView().findViewById(R.id.gameView);
                 theGameEngine = new GameEngine(getActivity(), gameView,bajas);
                 theGameEngine.setTheInputController(new JoystickInputController(getView()));
-                theGameEngine.addGameObject(new SpaceShipPlayer(theGameEngine));
+                if(ship==0)
+                theGameEngine.addGameObject(new SpaceShipPlayer(theGameEngine,0));
+                else
+                    theGameEngine.addGameObject(new SpaceShipPlayer(theGameEngine,1));
 
                 theGameEngine.addGameObject(new FramesPerSecondCounter(theGameEngine));
                 theGameEngine.startGame();
