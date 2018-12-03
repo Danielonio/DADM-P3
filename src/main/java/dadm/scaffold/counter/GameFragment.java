@@ -134,7 +134,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
                         theGameEngine.resumeGame();
                     }
                 })
-                .setNegativeButton(R.string.stop, new DialogInterface.OnClickListener() {
+                .setNegativeButton("Menú principal", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

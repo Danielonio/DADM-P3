@@ -19,15 +19,17 @@ public class enemyShip extends Sprite {
     private int maxX;
     private int maxY;
     private double speedFactor;
+    GameEngine ge;
    int n;
 
     public enemyShip(GameEngine gameEngine){
-        super(gameEngine, R.drawable.robot,-1);
+        super(gameEngine, R.drawable.enemigo,-1);
         speedFactor = pixelFactor * 100d / 1000000d; // We want to move at 100px per second on a 400px tall screen
         maxX = gameEngine.width - imageWidth;
         maxY = gameEngine.height - imageHeight;
         Random r = new Random();
-        n = r.nextInt(5)+1 ;
+        n = r.nextInt(10)+1 ;
+        ge=gameEngine;
     }
 
 
@@ -65,6 +67,8 @@ public class enemyShip extends Sprite {
     private void updatePosition(long elapsedMillis) {
         positionX = maxX/n;
         positionY += speedFactor*10 ;
+        if (positionY > maxY ) {
+            ge.removeGameObject(this);}
 
     }
 }

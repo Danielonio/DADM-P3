@@ -34,13 +34,11 @@ public abstract class Sprite extends GameObject {
         Resources r = gameEngine.getContext().getResources();
         Drawable spriteDrawable;
         if(color_nave==0){
-            spriteDrawable = r.getDrawable(R.drawable.ship);}
+            spriteDrawable = r.getDrawable(R.drawable.ship0);}
         else if(color_nave==1){
-            spriteDrawable = r.getDrawable(R.drawable.bullet);}
+            spriteDrawable = r.getDrawable(R.drawable.ship1);}
             else{
             spriteDrawable = r.getDrawable(drawableRes);}
-
-
 
 
 
@@ -51,7 +49,7 @@ public abstract class Sprite extends GameObject {
 
         this.bitmap = ((BitmapDrawable) spriteDrawable).getBitmap();
         paint = new Paint();
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.TRANSPARENT);
         paint.setStrokeWidth(3);
         rect = new Rect((int)positionX,(int)positionY,(int)positionX+imageWidth, (int)positionY+imageHeight);
     }
