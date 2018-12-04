@@ -31,10 +31,10 @@
         android:id="@+id/btn_play_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="690dp"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:src="@drawable/pausa"
+        android:layout_gravity="center"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="-100dp"
         android:background="@null"
-        />
+        android:src="@drawable/pausa" />
 
 </FrameLayout>

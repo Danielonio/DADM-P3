@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import dadm.scaffold.BaseFragment;
@@ -124,45 +125,47 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
 
     private void pauseGameAndShowPauseDialog() {
         theGameEngine.pauseGame();
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Juego pausado")
+        if(theGameEngine.fin) {
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("Juego pausado")
 
-                .setPositiveButton("Seguir jugando", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        theGameEngine.resumeGame();
-                    }
-                })
-                .setNegativeButton("Menú principal", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        theGameEngine.stopGame();
-                        ((ScaffoldActivity)getActivity()).navigateBack();
-                    }
-                })
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        theGameEngine.resumeGame();
-                    }
-                })
-                .create()
-                .show();
+                    .setPositiveButton("Seguir jugando", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            theGameEngine.resumeGame();
+                        }
+                    })
+                    .setNegativeButton("Menú principal", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            theGameEngine.stopGame();
+                            ((ScaffoldActivity) getActivity()).navigateBack();
+                        }
+                    })
+                    .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            theGameEngine.resumeGame();
+                        }
+                    })
+                    .create()
+                    .show();
+        }
 
     }
 
     private void playOrPause() {
 
-        Button button = (Button) getView().findViewById(R.id.btn_play_pause);
+        ImageButton button = (ImageButton) getView().findViewById(R.id.btn_play_pause);
         if (theGameEngine.isPaused()) {
             theGameEngine.resumeGame();
-            button.setText(R.string.pause);
+            //button.setText(R.string.pause);
         }
         else {
             theGameEngine.pauseGame();
-            button.setText(R.string.resume);
+            //button.setText(R.string.resume);
         }
     }
 }

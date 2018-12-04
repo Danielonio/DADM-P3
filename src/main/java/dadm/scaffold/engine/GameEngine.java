@@ -32,6 +32,8 @@ public class GameEngine {
     TextView bajas;
     public int nBajas=0;
     public int nVidas=3;
+    boolean b = true;
+    public boolean fin = true;
     public GameEngine(Activity activity, GameView gameView, TextView bajas) {
         mainActivity = activity;
 
@@ -132,8 +134,12 @@ public class GameEngine {
                 gameObjects.add(objectsToAdd.remove(0));
             }
         }
-        if(nVidas<=0 || nBajas>=20)
+        if(nVidas<=0 || nBajas>=20) {
+            fin = false;
+            //stopGame();
             lanzar();
+            //mainActivity.finish();
+        }
     }
 
     public void onDraw() {
@@ -151,11 +157,16 @@ public class GameEngine {
     public Context getContext() {
         return theGameView.getContext();
     }
-    public void lanzar(){//inicia una nueva actividad pasándole como parametro la puntuación
-        Intent i = new Intent(getContext(), resultado.class);
-        i.putExtra("puntos", nBajas);
-        i.putExtra("vidas", nVidas);
-        getContext().startActivity(i);
 
+    public void lanzar(){//inicia una nueva actividad pasándole como parametro la puntuación
+        if(b==true) {
+            b =false;
+            Intent i = new Intent(getContext(), resultado.class);
+            i.putExtra("puntos", nBajas);
+            i.putExtra("vidas", nVidas);
+            getContext().startActivity(i);
+            //pauseGame();
+            mainActivity.finish();
+        }
     }
 }
