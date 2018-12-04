@@ -27,7 +27,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
 
 
     Handler handler = new Handler();
-    int delay = 2000; //milliseconds
+    int delay = 1000; //milliseconds
 
     private int ship;
     TextView bajas;
@@ -125,9 +125,9 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     private void pauseGameAndShowPauseDialog() {
         theGameEngine.pauseGame();
         new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.pause_dialog_title)
-                .setMessage(R.string.pause_dialog_message)
-                .setPositiveButton(R.string.resume, new DialogInterface.OnClickListener() {
+                .setTitle("Juego pausado")
+
+                .setPositiveButton("Seguir jugando", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

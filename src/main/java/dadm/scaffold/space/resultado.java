@@ -36,7 +36,7 @@ public class resultado extends AppCompatActivity {
         {
             sec.setText("No has superado el nivel");
         }else
-        sec.setText("¡NIVEL SUPERADO!  Vidas restantes" + vidas);
+        sec.setText("¡NIVEL SUPERADO!  Vidas restantes: " + vidas);
         puntuacion= (TextView)findViewById(R.id.pp);
         puntuacion.setText("Enemigos eliminados: "+String.valueOf(puntos));
         s = findViewById(R.id.sj);

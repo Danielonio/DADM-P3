@@ -19,7 +19,7 @@ public class MainMenuFragment extends BaseFragment implements View.OnClickListen
     private RadioGroup grupo;
     int radioButtonID;
     RadioButton select;
-    String respuesta;
+    String respuesta="o";
     public MainMenuFragment() {
     }
 
@@ -35,6 +35,7 @@ public class MainMenuFragment extends BaseFragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.btn_start).setOnClickListener(this);
         grupo =  view.findViewById(R.id.group);
+
         grupo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {//cuando seleccionas un elemento del radioGroup el valor de respuesta se actualiza
@@ -50,7 +51,7 @@ public class MainMenuFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
-       if(respuesta.equals("Rojo"))
+       if(respuesta.equals("Rojo")||respuesta.equals("o"))
         ((ScaffoldActivity)getActivity()).startGame( 0);
        else
        if(respuesta.equals("Azul"))

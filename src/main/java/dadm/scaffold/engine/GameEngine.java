@@ -115,7 +115,7 @@ public class GameEngine {
 
     public void onUpdate(long elapsedMillis) {
 
-        bajas.setText("Eliminados: "+  nBajas+ "  |  Vidas "+ nVidas);
+        bajas.setText("Eliminados: "+  nBajas+ "  |  Vidas: "+ nVidas);
 
         int numGameObjects = gameObjects.size();
         for (int i = 0; i < numGameObjects; i++) {
